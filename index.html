@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вет-портал YUTTO — WBS</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Arial, sans-serif;
+    background: #f5f7fb;
+    color: #202938;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 25px 80px;
+}
+
+header {
+    margin-bottom: 35px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 750;
+}
+
+.subtitle {
+    margin-top: 8px;
+    color: #7b8494;
+    font-size: 16px;
+}
+
+
+.wbs > details {
+    margin-bottom: 14px;
+    border: 1px solid #e3e7ef;
+    border-radius: 14px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(30, 40, 60, .04);
+}
+
+summary {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+.wbs > details > summary {
+    padding: 20px 24px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wbs > details > summary::before,
+.sub.has-children > summary::before {
+    content: "›";
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: #eef1f7;
+    transition: .2s;
+}
+
+.wbs > details[open] > summary::before,
+.sub.has-children[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+.content {
+    padding: 0 24px 20px 58px;
+}
+
+.sub {
+    margin: 8px 0;
+}
+
+.sub > summary {
+    padding: 10px 12px;
+    border-radius: 9px;
+    font-weight: 600;
+    color: #3d4758;
+}
+
+
+.sub.has-children > summary:hover {
+    background: #f5f7fb;
+}
+
+
+.sub.leaf > summary {
+    cursor: default;
+    padding-left: 12px;
+}
+
+.sub.leaf > summary::before {
+    display: none;
+}
+
+
+.items {
+    padding: 5px 0 8px 34px;
+}
+
+.item {
+    position: relative;
+    padding: 7px 0 7px 18px;
+    color: #697386;
+    font-size: 14px;
+}
+
+.item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #aab3c2;
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .content {
+        padding-left: 25px;
+    }
+
+    .items {
+        padding-left: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>Вет-портал YUTTO</h1>
+    <div class="subtitle">WBS</div>
+</header>
+
+<div class="wbs">
+
+
+<details>
+<summary>1. Архитектура и инфраструктура</summary>
+
+<div class="content">
+
+    <details class="sub has-children">
+        <summary>1.1. Архитектура</summary>
+
+        <div class="items">
+            <div class="item">1.1.1. Проектирование архитектуры системы</div>
+            <div class="item">1.1.2. Определение компонентов системы</div>
+            <div class="item">1.1.3. Определение взаимодействия Frontend и Backend</div>
+            <div class="item">1.1.4. Проектирование структуры данных</div>
+            <div class="item">1.1.5. Определение ролей пользовательской системы и их разграничений</div>
+            <div class="item">1.1.6. Определение внешних интеграций</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>1.2. База данных</summary>
+
+        <div class="items">
+            <div class="item">1.2.1. Проектирование структуры БД</div>
+            <div class="item">1.2.2. Модель пользователей</div>
+            <div class="item">1.2.3. Модель питомцев</div>
+            <div class="item">1.2.4. Модель организаций</div>
+            <div class="item">1.2.5. Модель услуг</div>
+            <div class="item">1.2.6. Модель записей</div>
+            <div class="item">1.2.7. Модель документов</div>
+            <div class="item">1.2.8. Модель уведомлений</div>
+            <div class="item">1.2.9. Модель отзывов</div>
+            <div class="item">1.2.10. Модель информационных материалов</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>1.3. DevOps</summary>
+
+        <div class="items">
+            <div class="item">1.3.1. Настройка серверной инфраструктуры</div>
+            <div class="item">1.3.2. Настройка окружений</div>
+            <div class="item">1.3.3. Настройка развёртывания</div>
+            <div class="item">1.3.4. Настройка резервного копирования</div>
+            <div class="item">1.3.5. Настройка мониторинга</div>
+            <div class="item">1.3.6. Подготовка инфраструктуры к запуску</div>
+        </div>
+    </details>
+
+</div>
+</details>
+
+
+<details>
+<summary>2. Каталог организаций</summary>
+
+<div class="content">
+
+    <details class="sub has-children">
+        <summary>2.1. Требования</summary>
+
+        <div class="items">
+            <div class="item">2.1.1. Требования к карточке организации</div>
+            <div class="item">2.1.2. Требования к контактной информации</div>
+            <div class="item">2.1.3. Требования к расположению на карте</div>
+            <div class="item">2.1.4. Требования к услугам</div>
+            <div class="item">2.1.5. Требования к отзывам</div>
+            <div class="item">2.1.6. Требования к оценкам</div>
+            <div class="item">2.1.7. Требования к редактированию информации организации</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>2.2. UX/UI</summary>
+
+        <div class="items">
+            <div class="item">2.2.1. Дизайн каталога</div>
+            <div class="item">2.2.2. Дизайн карточки организации</div>
+            <div class="item">2.2.3. Дизайн блока услуг</div>
+            <div class="item">2.2.4. Дизайн блока специалистов</div>
+            <div class="item">2.2.5. Дизайн карты</div>
+            <div class="item">2.2.6. Дизайн отзывов и рейтинга</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>2.3. Frontend</summary>
+
+        <div class="items">
+            <div class="item">2.3.1. Отображение каталога</div>
+            <div class="item">2.3.2. Отображение карточки</div>
+            <div class="item">2.3.3. Отображение карты</div>
+            <div class="item">2.3.4. Отображение услуг</div>
+            <div class="item">2.3.5. Отображение специалистов</div>
+            <div class="item">2.3.6. Отображение отзывов</div>
+            <div class="item">2.3.7. Добавление оценки</div>
+            <div class="item">2.3.8. Добавление отзыва</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>2.4. Backend</summary>
+
+        <div class="items">
+            <div class="item">2.4.1. API организаций</div>
+            <div class="item">2.4.2. Создание организации</div>
+            <div class="item">2.4.3. Редактирование организации</div>
+            <div class="item">2.4.4. Удаление организации</div>
+            <div class="item">2.4.5. API услуг</div>
+            <div class="item">2.4.6. Управление услугами</div>
+            <div class="item">2.4.7. Управление специалистами</div>
+            <div class="item">2.4.8. API отзывов</div>
+            <div class="item">2.4.9. API оценок</div>
+            <div class="item">2.4.10. Хранение данных организаций</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>2.5. Тестирование</summary>
+
+        <div class="items">
+            <div class="item">2.5.1. Тестирование каталога</div>
+            <div class="item">2.5.2. Тестирование карточки</div>
+            <div class="item">2.5.3. Тестирование услуг</div>
+            <div class="item">2.5.4. Тестирование блока специалистов</div>
+            <div class="item">2.5.5. Тестирование карты</div>
+            <div class="item">2.5.6. Тестирование отзывов</div>
+            <div class="item">2.5.7. Тестирование оценок</div>
+        </div>
+    </details>
+
+</div>
+</details>
+
+
+<details>
+<summary>3. Онлайн-запись на приём</summary>
+
+<div class="content">
+
+    <details class="sub has-children">
+        <summary>3.1. Требования</summary>
+
+        <div class="items">
+            <div class="item">3.1.1. Требования к выбору специалиста</div>
+            <div class="item">3.1.2. Требования к выбору даты</div>
+            <div class="item">3.1.3. Требования к выбору времени</div>
+            <div class="item">3.1.4. Требования к созданию записи</div>
+            <div class="item">3.1.5. Требования к подтверждению</div>
+            <div class="item">3.1.6. Требования к изменению</div>
+            <div class="item">3.1.7. Требования к отмене</div>
+            <div class="item">3.1.8. Требования к уведомлениям о записи</div>
+            <div class="item">3.1.9. Требования к выбору услуги</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>3.2. UX/UI</summary>
+
+        <div class="items">
+            <div class="item">3.2.1. Дизайн выбора услуги</div>
+            <div class="item">3.2.2. Дизайн выбора даты</div>
+            <div class="item">3.2.3. Дизайн выбора времени</div>
+            <div class="item">3.2.4. Дизайн выбора специалиста</div>
+            <div class="item">3.2.5. Дизайн формы записи</div>
+            <div class="item">3.2.6. Дизайн подтверждения</div>
+            <div class="item">3.2.7. Дизайн изменения/отмены</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>3.3. Frontend</summary>
+
+        <div class="items">
+            <div class="item">3.3.1. Выбор услуги</div>
+            <div class="item">3.3.2. Выбор даты</div>
+            <div class="item">3.3.3. Выбор времени</div>
+            <div class="item">3.3.4. Выбор специалиста</div>
+            <div class="item">3.3.5. Создание записи</div>
+            <div class="item">3.3.6. Подтверждение записи</div>
+            <div class="item">3.3.7. Изменение записи</div>
+            <div class="item">3.3.8. Отмена записи</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>3.4. Backend</summary>
+
+        <div class="items">
+            <div class="item">3.4.1. API специалистов</div>
+            <div class="item">3.4.2. Получение доступных дат</div>
+            <div class="item">3.4.3. Получение доступного времени, специалиста, услуги</div>
+            <div class="item">3.4.4. Создание записи</div>
+            <div class="item">3.4.5. Подтверждение записи</div>
+            <div class="item">3.4.6. Изменение записи</div>
+            <div class="item">3.4.7. Отмена записи</div>
+            <div class="item">3.4.8. Хранение записей</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>3.5. Тестирование</summary>
+
+        <div class="items">
+            <div class="item">3.5.1. Тестирование выбора услуги и специалиста</div>
+            <div class="item">3.5.2. Тестирование выбора времени, даты</div>
+            <div class="item">3.5.3. Тестирование создания записи</div>
+            <div class="item">3.5.4. Тестирование подтверждения</div>
+            <div class="item">3.5.5. Тестирование изменения</div>
+            <div class="item">3.5.6. Тестирование отмены</div>
+            <div class="item">3.5.7. Тестирование конфликтов записи</div>
+        </div>
+    </details>
+
+</div>
+</details>
+
+
+<details>
+<summary>4. Личный кабинет владельца питомца</summary>
+
+<div class="content">
+
+    <details class="sub has-children">
+        <summary>4.1. Требования</summary>
+
+        <div class="items">
+            <div class="item">4.1.1. Требования к данным питомца</div>
+            <div class="item">4.1.2. Требования к документам</div>
+            <div class="item">4.1.3. Требования к истории посещений</div>
+            <div class="item">4.1.4. Требования к вакцинациям, прививкам</div>
+            <div class="item">4.1.5. Требования к плановым приёмам и событиям</div>
+            <div class="item">4.1.6. Требования к отправке документов</div>
+            <div class="item">4.1.7. Требования к управлению данными о питомце</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>4.2. UX/UI</summary>
+
+        <div class="items">
+            <div class="item">4.2.1. Дизайн личного кабинета</div>
+            <div class="item">4.2.2. Дизайн профиля питомца</div>
+            <div class="item">4.2.3. Дизайн документов</div>
+            <div class="item">4.2.4. Дизайн истории посещений</div>
+            <div class="item">4.2.5. Дизайн вакцинаций и прививок</div>
+            <div class="item">4.2.6. Дизайн отправки документов</div>
+            <div class="item">4.2.7. Дизайн плановых приёмов и событий</div>
+            <div class="item">4.2.8. Дизайн форм управления данными питомца (удаление, добавление, редактирование)</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>4.3. Frontend</summary>
+
+        <div class="items">
+            <div class="item">4.3.1. Отображение питомцев</div>
+            <div class="item">4.3.2. Добавление питомца</div>
+            <div class="item">4.3.3. Редактирование питомца</div>
+            <div class="item">4.3.4. Удаление питомца</div>
+            <div class="item">4.3.5. Работа с документами (загрузка, просмотр, скачивание, удаление)</div>
+            <div class="item">4.3.6. Отображение истории</div>
+            <div class="item">4.3.7. Отображение информации о прививках и вакцинах</div>
+            <div class="item">4.3.8. Отображение информации о плановых посещениях и событиях</div>
+            <div class="item">4.3.9. Изменение данных о плановых посещениях (отмена или перенос)</div>
+            <div class="item">4.3.10. Отправка документов</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>4.4. Backend</summary>
+
+        <div class="items">
+            <div class="item">4.4.1. API питомцев</div>
+            <div class="item">4.4.2. CRUD питомцев</div>
+            <div class="item">4.4.3. API документов</div>
+            <div class="item">4.4.4. Хранение документов</div>
+            <div class="item">4.4.5. API истории посещений</div>
+            <div class="item">4.4.6. API вакцинаций и прививок</div>
+            <div class="item">4.4.7. API плановых приёмов и событий</div>
+            <div class="item">4.4.8. Управление доступом к данным</div>
+            <div class="item">4.4.9. Отправка документов организации</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>4.5. Тестирование</summary>
+
+        <div class="items">
+            <div class="item">4.5.1. Тестирование питомцев</div>
+            <div class="item">4.5.2. Тестирование документов</div>
+            <div class="item">4.5.3. Тестирование истории</div>
+            <div class="item">4.5.4. Тестирование вакцинаций и прививок</div>
+            <div class="item">4.5.5. Тестирование плановых приёмов и событий</div>
+            <div class="item">4.5.6. Тестирование отправки документов</div>
+            <div class="item">4.5.7. Тестирование доступа к данным</div>
+        </div>
+    </details>
+
+</div>
+</details>
+
+
+
+<details>
+<summary>5. Кабинет организаций</summary>
+
+<div class="content">
+
+    <details class="sub has-children">
+        <summary>5.1. Требования</summary>
+
+        <div class="items">
+            <div class="item">5.1.1. Требования к авторизации сотрудников организации</div>
+            <div class="item">5.1.2. Требования к ролям сотрудников организации</div>
+            <div class="item">5.1.3. Требования к разграничению прав доступа</div>
+            <div class="item">5.1.4. Требования к профилю организации</div>
+            <div class="item">5.1.5. Требования к управлению пациентами</div>
+            <div class="item">5.1.6. Требования к просмотру данных пациента</div>
+            <div class="item">5.1.7. Требования к управлению специалистами</div>
+            <div class="item">5.1.8. Требования к управлению услугами</div>
+            <div class="item">5.1.9. Требования к управлению расписанием специалистов</div>
+            <div class="item">5.1.10. Требования к управлению записями на приём</div>
+            <div class="item">5.1.11. Требования к просмотру документов пациентов</div>
+            <div class="item">5.1.12. Требования к просмотру истории посещений</div>
+            <div class="item">5.1.13. Требования к просмотру информации о вакцинациях и прививках</div>
+            <div class="item">5.1.14. Требования к управлению плановыми приёмами и событиями</div>
+            <div class="item">5.1.15. Требования к работе с отзывами и оценками</div>
+            <div class="item">5.1.16. Требования к уведомлениям организации</div>
+            <div class="item">5.1.17. Требования к поиску и фильтрации пациентов</div>
+            <div class="item">5.1.18. Требования к изоляции данных различных организаций</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>5.2. UX/UI</summary>
+
+        <div class="items">
+            <div class="item">5.2.1. Дизайн кабинета организации</div>
+            <div class="item">5.2.2. Дизайн главной панели</div>
+            <div class="item">5.2.3. Дизайн списка пациентов</div>
+            <div class="item">5.2.4. Дизайн карточки пациента</div>
+            <div class="item">5.2.5. Дизайн документов пациента</div>
+            <div class="item">5.2.6. Дизайн истории посещений</div>
+            <div class="item">5.2.7. Дизайн вакцинаций и прививок</div>
+            <div class="item">5.2.8. Дизайн плановых приёмов и событий</div>
+            <div class="item">5.2.9. Дизайн списка специалистов</div>
+            <div class="item">5.2.10. Дизайн управления специалистом</div>
+            <div class="item">5.2.11. Дизайн списка услуг</div>
+            <div class="item">5.2.12. Дизайн управления расписанием</div>
+            <div class="item">5.2.13. Дизайн списка записей</div>
+            <div class="item">5.2.14. Дизайн управления сотрудниками</div>
+            <div class="item">5.2.15. Дизайн настроек организации</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>5.3. Frontend</summary>
+
+        <div class="items">
+            <div class="item">5.3.1. Авторизация сотрудника организации</div>
+            <div class="item">5.3.2. Отображение главной панели</div>
+            <div class="item">5.3.3. Отображение списка пациентов</div>
+            <div class="item">5.3.4. Поиск и фильтрация пациентов</div>
+            <div class="item">5.3.5. Просмотр карточки пациента</div>
+            <div class="item">5.3.6. Просмотр документов пациента</div>
+            <div class="item">5.3.7. Просмотр истории посещений</div>
+            <div class="item">5.3.8. Просмотр информации о вакцинациях и прививках</div>
+            <div class="item">5.3.9. Просмотр плановых приёмов и событий</div>
+            <div class="item">5.3.10. Управление специалистами</div>
+            <div class="item">5.3.11. Управление услугами</div>
+            <div class="item">5.3.12. Управление расписанием специалистов</div>
+            <div class="item">5.3.13. Просмотр и управление записями</div>
+            <div class="item">5.3.14. Управление сотрудниками организации</div>
+            <div class="item">5.3.15. Управление ролями и правами сотрудников</div>
+            <div class="item">5.3.16. Редактирование информации организации</div>
+            <div class="item">5.3.17. Работа с отзывами и оценками</div>
+            <div class="item">5.3.18. Просмотр уведомлений организации</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>5.4. Backend</summary>
+
+        <div class="items">
+            <div class="item">5.4.1. API кабинета организации</div>
+            <div class="item">5.4.2. Авторизация сотрудников организации</div>
+            <div class="item">5.4.3. Управление ролями и правами доступа</div>
+            <div class="item">5.4.4. API пациентов</div>
+            <div class="item">5.4.5. API специалистов</div>
+            <div class="item">5.4.6. API сотрудников организации</div>
+            <div class="item">5.4.7. API услуг</div>
+            <div class="item">5.4.8. API расписания специалистов</div>
+            <div class="item">5.4.9. API записей</div>
+            <div class="item">5.4.10. API документов пациентов</div>
+            <div class="item">5.4.11. API истории посещений</div>
+            <div class="item">5.4.12. API вакцинаций и прививок</div>
+            <div class="item">5.4.13. API плановых приёмов и событий</div>
+            <div class="item">5.4.14. API отзывов и оценок</div>
+            <div class="item">5.4.15. API уведомлений организации</div>
+            <div class="item">5.4.16. Управление данными организации</div>
+            <div class="item">5.4.17. Разграничение доступа к данным организаций</div>
+            <div class="item">5.4.18. Проверка принадлежности пациента организации</div>
+            <div class="item">5.4.19. Управление сотрудниками организации</div>
+            <div class="item">5.4.20. Управление расписанием и доступностью специалистов</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>5.5. Тестирование</summary>
+
+        <div class="items">
+            <div class="item">5.5.1. Тестирование авторизации</div>
+            <div class="item">5.5.2. Тестирование ролей и прав доступа</div>
+            <div class="item">5.5.3. Тестирование пациентов</div>
+            <div class="item">5.5.4. Тестирование карточки пациента</div>
+            <div class="item">5.5.5. Тестирование документов</div>
+            <div class="item">5.5.6. Тестирование истории посещений</div>
+            <div class="item">5.5.7. Тестирование вакцинаций и прививок</div>
+            <div class="item">5.5.8. Тестирование плановых приёмов и событий</div>
+            <div class="item">5.5.9. Тестирование специалистов</div>
+            <div class="item">5.5.10. Тестирование услуг</div>
+            <div class="item">5.5.11. Тестирование расписания</div>
+            <div class="item">5.5.12. Тестирование записей</div>
+            <div class="item">5.5.13. Тестирование сотрудников организации</div>
+            <div class="item">5.5.14. Тестирование отзывов и оценок</div>
+            <div class="item">5.5.15. Тестирование уведомлений</div>
+            <div class="item">5.5.16. Тестирование изоляции данных организаций</div>
+        </div>
+    </details>
+
+</div>
+</details>
+
+
+<details>
+<summary>6. Система уведомлений</summary>
+
+<div class="content">
+
+    <details class="sub has-children">
+        <summary>6.1. Требования</summary>
+
+        <div class="items">
+            <div class="item">6.1.1. Требования к Email-уведомлениям</div>
+            <div class="item">6.1.2. Требования к SMS-уведомлениям</div>
+            <div class="item">6.1.3. Требования к Push-уведомлениям</div>
+            <div class="item">6.1.4. Требования к настройкам уведомлений</div>
+            <div class="item">6.1.5. Требования к отключению уведомлений</div>
+            <div class="item">6.1.6. Требования к напоминаниям о приёмах, вакцинациях и процедурах</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>6.2. UX/UI</summary>
+
+        <div class="items">
+            <div class="item">6.2.1. Дизайн настроек уведомлений</div>
+            <div class="item">6.2.2. Дизайн уведомлений и напоминаний</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>6.3. Frontend</summary>
+
+        <div class="items">
+            <div class="item">6.3.1. Отображение уведомлений</div>
+            <div class="item">6.3.2. Настройка уведомлений</div>
+            <div class="item">6.3.3. Отключение уведомлений</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>6.4. Backend</summary>
+
+        <div class="items">
+            <div class="item">6.4.1. API уведомлений</div>
+            <div class="item">6.4.2. Формирование и отправка уведомлений</div>
+            <div class="item">6.4.3. Формирование напоминаний о приёмах, вакцинациях и процедурах</div>
+            <div class="item">6.4.4. Хранение настроек уведомлений</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>6.5. Интеграции</summary>
+
+        <div class="items">
+            <div class="item">6.5.1. Интеграция с Email-сервисом</div>
+            <div class="item">6.5.2. Интеграция с SMS-сервисом</div>
+            <div class="item">6.5.3. Интеграция с Push-сервисом</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>6.6. Тестирование</summary>
+
+        <div class="items">
+            <div class="item">6.6.1. Тестирование отправки уведомлений</div>
+            <div class="item">6.6.2. Тестирование настроек уведомлений</div>
+            <div class="item">6.6.3. Тестирование напоминаний</div>
+            <div class="item">6.6.4. Тестирование интеграций</div>
+        </div>
+    </details>
+
+</div>
+</details>
+
+
+<details>
+<summary>7. Информационный раздел</summary>
+
+<div class="content">
+
+    <details class="sub has-children">
+        <summary>7.1. Требования</summary>
+
+        <div class="items">
+            <div class="item">7.1.1. Требования к статьям</div>
+            <div class="item">7.1.2. Требования к советам</div>
+            <div class="item">7.1.3. Требования к новостям</div>
+            <div class="item">7.1.4. Требования к обучающим материалам</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>7.2. UX/UI</summary>
+
+        <div class="items">
+            <div class="item">7.2.1. Дизайн раздела</div>
+            <div class="item">7.2.2. Дизайн списка материалов</div>
+            <div class="item">7.2.3. Дизайн страницы материала</div>
+            <div class="item">7.2.4. Дизайн новостей</div>
+            <div class="item">7.2.5. Дизайн панели добавления/редактирования/удаления материалов</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>7.3. Frontend</summary>
+
+        <div class="items">
+            <div class="item">7.3.1. Список материалов</div>
+            <div class="item">7.3.2. Просмотр материала</div>
+            <div class="item">7.3.3. Отображение статей</div>
+            <div class="item">7.3.4. Отображение советов</div>
+            <div class="item">7.3.5. Отображение новостей</div>
+            <div class="item">7.3.6. Отображение обучающих материалов</div>
+            <div class="item">7.3.7. Добавление материалов</div>
+            <div class="item">7.3.8. Редактирование материалов</div>
+            <div class="item">7.3.9. Удаление материалов</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>7.4. Backend</summary>
+
+        <div class="items">
+            <div class="item">7.4.1. API материалов</div>
+            <div class="item">7.4.2. Создание материалов</div>
+            <div class="item">7.4.3. Редактирование материалов</div>
+            <div class="item">7.4.4. Удаление материалов</div>
+            <div class="item">7.4.5. Управление новостями</div>
+            <div class="item">7.4.6. Хранение материалов</div>
+        </div>
+    </details>
+
+    <details class="sub has-children">
+        <summary>7.5. Тестирование</summary>
+
+        <div class="items">
+            <div class="item">7.5.1. Тестирование публикации</div>
+            <div class="item">7.5.2. Тестирование редактирования</div>
+            <div class="item">7.5.3. Тестирование удаления</div>
+            <div class="item">7.5.4. Тестирование отображения</div>
+        </div>
+    </details>
+
+</div>
+</details>
+
+
+<details>
+<summary>8. Общесистемный пользовательский интерфейс</summary>
+
+<div class="content">
+
+    <div class="sub leaf">
+        <summary>8.1. Общая навигация</summary>
+    </div>
+
+    <div class="sub leaf">
+        <summary>8.2. Адаптивность</summary>
+    </div>
+
+    <div class="sub leaf">
+        <summary>8.3. Общие компоненты интерфейса</summary>
+    </div>
+
+    <div class="sub leaf">
+        <summary>8.4. Состояния загрузки</summary>
+    </div>
+
+    <div class="sub leaf">
+        <summary>8.5. Состояния ошибок</summary>
+    </div>
+
+</div>
+</details>
+
+
+<details>
+<summary>9. Интеграция и системное тестирование</summary>
+
+<div class="content">
+
+    <div class="sub leaf">
+        <summary>9.1. Интеграция функциональных модулей</summary>
+    </div>
+
+    <div class="sub leaf">
+        <summary>9.2. Проверка взаимодействия Frontend/Backend</summary>
+    </div>
+
+    <div class="sub leaf">
+        <summary>9.3. Проверка внешних сервисов</summary>
+    </div>
+
+    <div class="sub leaf">
+        <summary>9.4. Сквозные пользовательские сценарии</summary>
+    </div>
+
+    <div class="sub leaf">
+        <summary>9.5. Исправление дефектов</summary>
+    </div>
+
+    <div class="sub leaf">
+        <summary>9.6. Регрессионное тестирование</summary>
+    </div>
+
+    <div class="sub leaf">
+        <summary>9.7. Приёмочное тестирование</summary>
+    </div>
+
+</div>
+</details>
+
+</div>
+</div>
+
+</body>
+</html>
